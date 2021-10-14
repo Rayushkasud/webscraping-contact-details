@@ -31,3 +31,13 @@ def get_details(url):
     # phone = soup2.find('div' , class_='field__item even')
     #print(email_id)
     return email_id,phone_num
+
+def get_details2(url):
+    response = requests.get(url)
+    soup = bs4.BeautifulSoup(response.text,'lxml')
+    phoneTag = soup.find('p', class_='text-6 text-color-light font-weight-bold')
+    phone_num = phoneTag.text
+    emailTag = soup.find('a', href='mailto:mail@example.com')
+    email_id = emailTag.text
+    return email_id,phone_num
+

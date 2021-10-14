@@ -1,17 +1,25 @@
 from tkinter import *
 from scrapeDetails import *
+from tkinter import scrolledtext
 
 
 def focus_field(event):
     input_field.focus_set()
+
 def get(url):
+    if url.strip() == "https://bmsce.ac.in/home/Contact-us":
+         result = get_details2(url)
+    elif url.strip() == "http://www.msrit.edu/contact-us.html":
+        result = get_details(url)
+    else:
+        results_area.insert('end','Could not get data')
+        
 
-    result =  get_details(url)
 
-    with open('results.txt','w') as f:
+    # with open('results.txt','w') as f:
 
-        f.writelines('mail: '+result[0]+'\n')
-        f.writelines('Phone Number :'+result[1]+'\n')
+    #     f.writelines('mail: '+result[0]+'\n')
+    #     f.writelines('Phone Number :'+result[1]+'\n')
 
     results_area.insert('end','mail: '+result[0]+'\n')
     results_area.insert('end','Phone Number :'+result[1]+'\n')
@@ -33,6 +41,7 @@ heading = Label(window , text='Enter URL of website whose Data is to be fetched'
 input = Label(window,text='input',bg='light blue')
 results = Label(window,text='Results',bg='light pink')
 
+ 
 input.place(x=60,y=150)
 results.place(x=40,y=210)
 inputVal = StringVar()
@@ -43,7 +52,10 @@ input.place(x=50,y=150)
 
 input_field = Entry(textvariable = inputVal,width = 30)
 input_field.bind('<Return>',focus_field)
-results_area = Text(width=50)
+results_area = scrolledtext.ScrolledText(window,wrap = WORD, width=50)
+
+
+		
 input_field.place(x=100, y=100)
 results_area.place(x= 100,y= 200)
 
