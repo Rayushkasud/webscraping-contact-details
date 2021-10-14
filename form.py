@@ -17,6 +17,17 @@ def get(url):
         result = get_details4(url)
     elif url.strip() == 'https://drait.edu.in/home/contact_us':
         result = get_details5(url)
+    elif url.strip() == 'https://www.cmrit.ac.in/':
+        result = get_details6(url)
+    elif url.strip() == 'https://drait.edu.in/home/contact_us':
+        result = get_details7(url)
+    elif url.strip() == 'https://drait.edu.in/home/contact_us':
+        result = get_details8(url)
+    elif url.strip() == 'https://drait.edu.in/home/contact_us':
+        result = get_details9(url)
+    elif url.strip() == 'https://drait.edu.in/home/contact_us':
+        result = get_details10(url)
+
     else:
         result = ('no','data')
         
