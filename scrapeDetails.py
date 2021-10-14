@@ -66,3 +66,20 @@ def get_details4(url):
     email_id = emailTag.text
     # print(email_id)
     return email_id , phone_num
+
+def get_details5(url):
+    response = requests.get(url)
+    soup = bs4.BeautifulSoup(response.text,'lxml')
+    phoneTag = soup.find_all('div', class_='media-body')
+    for index,tags in enumerate(phoneTag):
+        if index == 1:
+            phone_num = tags.p.text
+        if index == 2:
+            email_id = tags.p.text
+
+    # print(phone_num)
+    # print(email_id)
+    # phone_num = phoneTag.text
+    # emailTag = soup.find('a', href='mailto:mail@example.com')
+    # email_id = emailTag.text
+    return email_id,phone_num
