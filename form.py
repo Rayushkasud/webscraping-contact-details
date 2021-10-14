@@ -21,7 +21,7 @@ def get(url):
         result = get_details6(url)
     elif url.strip() == 'https://www.alliance.edu.in/school-of-engineering-and-design/contact-us':
         result = get_details7(url)
-    elif url.strip() == 'https://drait.edu.in/home/contact_us':
+    elif url.strip() == 'https://pes.edu/contact/':
         result = get_details8(url)
     elif url.strip() == 'https://drait.edu.in/home/contact_us':
         result = get_details9(url)

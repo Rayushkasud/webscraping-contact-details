@@ -105,3 +105,14 @@ def get_details7(url):
     # emailTag = soup.find('i',href="mailto:info@cmrit.ac.in")
     # email_id = emailTag.text
     return email_id,phone_num
+
+   
+def get_details8(url):
+
+    response = requests.get(url)
+    soup = bs4.BeautifulSoup(response.text,'lxml')
+  
+    emailTag = soup.find('a',href="mailto:admissions@pes.edu")
+    email_id = emailTag.text
+
+    return email_id,'na'
