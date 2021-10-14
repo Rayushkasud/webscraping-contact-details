@@ -3,13 +3,16 @@ import requests
 import lxml
 
 
-def get_url():
-    with open('URLs.txt','r') as f:
-        url = f.readline().strip()
-        return url
-def get_details():
-    URL = get_url()
-    res = requests.get(URL)
+# def get_url():
+#     with open('URLs.txt','r') as f:
+#         url = f.readline().strip()
+#         if url == 'http://www.msrit.edu/contact-us.html':
+#             get_details(url)
+#         else:
+#             print('not equal')
+def get_details(url):
+    #URL = get_url()
+    res = requests.get(url)
     soup = bs4.BeautifulSoup(res.text,'lxml')
     getmail = soup.find('h6', class_='contact-mail')
     getnum = soup.find('h6', class_='contact-phone')

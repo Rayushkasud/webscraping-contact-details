@@ -1,10 +1,12 @@
 from tkinter import *
 from scrapeDetails import *
+
+
 def focus_field(event):
     input_field.focus_set()
-def get():
+def get(url):
 
-    result =  get_details()
+    result =  get_details(url)
 
     with open('results.txt','w') as f:
 
@@ -19,7 +21,7 @@ def writeURL():
     print(url)
     with open('URLs.txt','w') as f:
         f.writelines(url)
-    get()
+    get(url)
     
 
 
