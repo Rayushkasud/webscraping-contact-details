@@ -13,6 +13,8 @@ def get(url):
         result = get_details(url)
     elif url.strip() == "https://www.iiitb.ac.in/":
         result = get_details3(url)
+    elif url.strip() == 'https://www.bnmit.org/contact/':
+        result = get_details4(url)
     else:
         result = ('no','data')
         

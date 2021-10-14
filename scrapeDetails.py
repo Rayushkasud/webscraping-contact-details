@@ -42,7 +42,7 @@ def get_details2(url):
     return email_id,phone_num
 
 def get_details3(url):
-    response = requests.get('https://www.iiitb.ac.in/')
+    response = requests.get(url)
     soup = bs4.BeautifulSoup(response.text,'lxml')
     phoneTag = soup.find_all('p',class_='widget-contact__text')
     for index,phonetags in enumerate(phoneTag):
@@ -51,3 +51,18 @@ def get_details3(url):
             #print(phonetags.text)
 
     return 'N/a',phone_num
+
+def get_details4(url):
+    response = requests.get(url)
+    soup = bs4.BeautifulSoup(response.text,'lxml')
+    phoneTag1 = soup.find('a' ,href="tel:+91-80-26711781")
+    #phoneTag2 = soup.find('a' ,href="tel:+91-80-26711782")
+
+    emailTag = soup.find('a' , href='mailto:principal@bnmit.in, bnmitprincipal@gmail.com')
+   
+    phone_num=phoneTag1.text
+ 
+    # print(phone_num)
+    email_id = emailTag.text
+    # print(email_id)
+    return email_id , phone_num
