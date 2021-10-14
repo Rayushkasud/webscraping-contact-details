@@ -11,8 +11,10 @@ def get(url):
          result = get_details2(url)
     elif url.strip() == "http://www.msrit.edu/contact-us.html":
         result = get_details(url)
+    elif url.strip() == "https://www.iiitb.ac.in/":
+        result = get_details3(url)
     else:
-        results_area.insert('end','Could not get data')
+        result = ('no','data')
         
 
 

@@ -41,3 +41,13 @@ def get_details2(url):
     email_id = emailTag.text
     return email_id,phone_num
 
+def get_details3(url):
+    response = requests.get('https://www.iiitb.ac.in/')
+    soup = bs4.BeautifulSoup(response.text,'lxml')
+    phoneTag = soup.find_all('p',class_='widget-contact__text')
+    for index,phonetags in enumerate(phoneTag):
+        if index == 2:
+            phone_num = phonetags.text
+            #print(phonetags.text)
+
+    return 'N/a',phone_num
