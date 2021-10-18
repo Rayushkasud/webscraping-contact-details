@@ -7,29 +7,30 @@ def focus_field(event):
     input_field.focus_set()
 
 def get(url):
-    if url.strip() == "https://bmsce.ac.in/home/Contact-us":
-         result = get_details2(url)
-    elif url.strip() == "http://www.msrit.edu/contact-us.html":
-        result = get_details(url)
-    elif url.strip() == "https://www.iiitb.ac.in/":
-        result = get_details3(url)
-    elif url.strip() == 'https://www.bnmit.org/contact/':
-        result = get_details4(url)
-    elif url.strip() == 'https://drait.edu.in/home/contact_us':
-        result = get_details5(url)
-    elif url.strip() == 'https://www.cmrit.ac.in/':
-        result = get_details6(url)
-    elif url.strip() == 'https://www.alliance.edu.in/school-of-engineering-and-design/contact-us':
-        result = get_details7(url)
-    elif url.strip() == 'https://pes.edu/contact/':
-        result = get_details8(url)
-    elif url.strip() == 'https://drait.edu.in/home/contact_us':
-        result = get_details9(url)
-    elif url.strip() == 'https://drait.edu.in/home/contact_us':
-        result = get_details10(url)
+    # if url.strip() == "https://bmsce.ac.in/home/Contact-us":
+    #      result = get_details2(url)
+    # elif url.strip() == "http://www.msrit.edu/contact-us.html":
+    #     result = get_details(url)
+    # elif url.strip() == "https://www.iiitb.ac.in/":
+    #     result = get_details3(url)
+    # elif url.strip() == 'https://www.bnmit.org/contact/':
+    #     result = get_details4(url)
+    # elif url.strip() == 'https://drait.edu.in/home/contact_us':
+    #     result = get_details5(url)
+    # elif url.strip() == 'https://www.cmrit.ac.in/':
+    #     result = get_details6(url)
+    # elif url.strip() == 'https://www.alliance.edu.in/school-of-engineering-and-design/contact-us':
+    #     result = get_details7(url)
+    # elif url.strip() == 'https://pes.edu/contact/':
+    #     result = get_details8(url)
+    # elif url.strip() == 'https://www.iisc.ac.in/about/general-information/contact/':
+    #     result = get_details9(url)
+    # elif url.strip() == 'https://drait.edu.in/home/contact_us':
+    #     result = get_details10(url)
 
-    else:
-        result = ('no','data')
+    # else:
+    #     result = ('no','data')
+    result = get_details6(url)
         
 
 
@@ -38,8 +39,8 @@ def get(url):
     #     f.writelines('mail: '+result[0]+'\n')
     #     f.writelines('Phone Number :'+result[1]+'\n')
 
-    results_area.insert('end','mail: '+result[0]+'\n')
-    results_area.insert('end','Phone Number :'+result[1]+'\n')
+    results_area.insert('end','mail: '+str(result[0])+'\n')
+    results_area.insert('end','Phone Number :'+str(result[1])+'\n')
     results_area.update()
 def writeURL():
     url = input_field.get()
