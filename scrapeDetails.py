@@ -85,42 +85,28 @@ def get_details5(url):
     # email_id = emailTag.text
     return email_id,phone_num
 
-# def get_details6(url):
-response = requests.get('https://www.reliancedigital.in/content/contactus')
-resp = response.text
-phone_results=[]
-email_results=[]
-soup = bs4.BeautifulSoup(response.text,'lxml')
-emailTag = soup.find_all('a')
-phone = re.compile('^tel:([^\?]*)')
-mail = re.compile('^mailto:([^\?]*)')
-for anchors in emailTag:
-    phones = phone.search(str(anchors.get('href')))
-    mails = mail.search(str(anchors.get('href')))
-    if phones:
-        # results = anchors.text
-        phone_results.append(anchors.text)
-    #print(email)
-    if mails:
-        email_results.append(anchors.text)
+def get_details(url):
+    response = requests.get(url)
+    resp = response.text
+    phone_results=[]
+    email_results=[]
+    soup = bs4.BeautifulSoup(response.text,'lxml')
+    emailTag = soup.find_all('a')
+    phone = re.compile('^tel:([^\?]*)')
+    mail = re.compile('^mailto:([^\?]*)')
+    for anchors in emailTag:
+        phones = phone.search(str(anchors.get('href')))
+        mails = mail.search(str(anchors.get('href')))
+        if phones:
+            # results = anchors.text
+            phone_results.append(anchors.text)
+        #print(email)
+        if mails:
+            email_results.append(anchors.text)
 
-print(phone_results)
-print(email_results)
-
-
-    
-
-
-#res = temp.search(resp)
-# strings = str(res)
-# res = strings[48:][:-2]
-
-# phoneTag = soup.find('a', href=temp)
-# phone_num = phoneTag.text
-# print(temp)
-    # emailTag = soup.find('a',href="mailto:info@cmrit.ac.in")
-    # email_id = emailTag.text
-    # return results,'n'
+    print(phone_results)
+    print(email_results)
+    return email_results,phone_results
 def get_details7(url):
 
     response = requests.get(url)

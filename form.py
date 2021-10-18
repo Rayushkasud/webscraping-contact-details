@@ -30,7 +30,7 @@ def get(url):
 
     # else:
     #     result = ('no','data')
-    result = get_details6(url)
+    result = get_details(url)
         
 
 
